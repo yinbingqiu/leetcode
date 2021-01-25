@@ -54,7 +54,9 @@ public class 栈实现树的先序中序后序遍历 {
             }
 
             while (!stack.isEmpty()) {
-                if (lastVisit == stack.peek().right || stack.peek().right == null) {
+                if (stack.peek().right == null // 右子树为空
+                        || lastVisit == stack.peek().right // 右子树已经访问过了
+                ) {
                     TreeNode tmp = stack.pop();
                     afterList.add(tmp.val);
                     lastVisit = tmp;
